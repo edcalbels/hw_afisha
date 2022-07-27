@@ -20,8 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/directors', views.directors_view),
     path('api/v1/movies', views.movies_view),
-
     path('api/v1/reviews', views.reviews_view),
+    # path('api/v1/movies/reviews/', views.moviereview_view),
 
 
 ]

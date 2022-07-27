@@ -32,3 +32,6 @@ def reviews_view(request):
         return Response(data=data)
 
 
+
+
+

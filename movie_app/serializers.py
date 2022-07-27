@@ -7,13 +7,22 @@ class DirectorSerializer(serializers.ModelSerializer):
         model = Director
         fields = '__all__'
 
-class MovieSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Movie
-        fields = '__all__'
 
 
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
-        fields = '__all__'
+        fields = 'id text stars'.split()
+        # exlcude = 'description duration director'.split()
+
+class MovieSerializer(serializers.ModelSerializer):
+    director = DirectorSerializer()
+    reviews = ReviewSerializer(many=True)
+
+    class Meta:
+        model = Movie
+        fields = 'title description duration director reviews'.split()
+
+
+
+
